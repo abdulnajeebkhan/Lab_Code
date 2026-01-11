@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            height: 100px;
+            width: 100%;
+            background-image: linear-gradient(to right, rgb(19, 160, 242), rgb(204, 226, 233));
+            transition: height 0.4s;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            position: sticky;
+            top: 0;
+        }
+        .box{
+            width: 75%;
+            margin: auto;
+            margin-top: 60px;
+        }
+        .container{
+            height: max-content;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content:flex-start;
+        }
+        .items-heading{
+            margin-bottom: 10px;
+        }
+        .product-img-container{
+            width: 30%;
+            height: 400px;
+        }
+        .img{
+            height: 100%;
+            width: 100%;
+        }
+        .product-detail{
+            width: 70%;
+            height: 500px;
+            padding-left: 100px;
+        }
+        .product-heading, .product-description, .product-price, .qty-btn-container{
+            margin-bottom: 20px;
+        }
+        .product-heading{
+            font-size: 40px;
+            color: rgb(77,77,77);
+        }
+        .product-description{
+            font-size: 18px;
+            width: 50%;
+        }
+        .product-price{
+            font-size: 22px;
+            font-weight: bolder;
+        }
+        .qty-btn-container{
+            background-color: rgb(91, 187, 243);
+            width: max-content;
+            border-radius: 5px;
+            font-size: 25px;
+        }
+        .decrease-btn, .increase-btn, .cart-decrease-btn, .cart-increase-btn{
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            border: 0;
+            background-color: transparent;
+            color: white;
+        }
+        .decrease-btn:hover, .increase-btn:hover, .cart-decrease-btn:hover, .cart-increase-btn:hover{
+            color: black;
+        }
+        .decrease-btn, .cart-decrease-btn{
+            border-right: 1px solid rgba(30,30,30,0.3);
+        }
+        .increase-btn, .cart-increase-btn{
+            border-left: 1px solid rgba(30,30,30,0.3);
+        }
+        .buy-now-btn, .add-to-cart-btn{
+            font-size: 20px;
+            width: 150px;
+            height: 40px;
+            border-radius: 10px;
+            border: 0px;
+            color: white;
+            font-weight: 600;
+        }
+        .buy-now-btn{
+            background-image: linear-gradient(to right, rgb(19, 160, 242), rgb(204, 226, 233));
+        }
+        .add-to-cart-btn{
+            background-image: linear-gradient(to right, rgb(235, 192, 64), rgb(239, 215, 144));
+        }
+        .cart{
+            height: 600px;
+            width: 350px;
+            background-image: linear-gradient(rgba(47, 47, 47), rgba(50, 50, 100, 0.719));
+            position: fixed;
+            top: 120px;
+            right: 10px;
+            border-radius: 15px 0px 0px 15px;
+            transition: height 0.5s;
+        }
+        .cart-close{
+            /* position: fixed;
+            top: 120px;
+            right: 10px;
+            height: 0px;
+            width: 350px;
+            background-image: linear-gradient(rgba(47, 47, 47), rgba(50, 50, 100, 0.719));
+            transition: height 0.5s; */
+            display: none;
+        }
+        .cart-heading-container{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.259);
+        }
+        .cart-heading, .cart-close-btn{
+            color: white;
+            font-size: 30px;
+        }
+        .cart-close-btn{
+            padding: 5px 10px;
+            border-radius: 7px;
+            background-color: rgba(0, 255, 255, 0.33);
+            border: 0px;
+        }
+        .cart-item-detail{
+            color: white;
+            font-size: 25px;
+            padding: 0px 5px;
+        }
+        .cart-item-functionality{
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+        }
+        .remove-item-btn{
+            width: max-content;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 10px;
+            border: 0px;
+            padding: 0px 5px;
+            background-color: rgba(255, 0, 0, 0.652);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <!-- <i class="ri-menu-line"></i> -->
+         <h1>Login</h1>
+    </nav>
+    <main class="box">
+        <h2 class="items-heading">Detail</h2>
+        <hr>
+        <div class="container">
+            <div class="product-img-container">
+                <img src="" alt="" class="img">
+            </div>
+            <div class="product-detail">
+                <h2 class="product-heading"></h2>
+                <p class="product-description"></p>
+                <p class="product-price"></p>
+
+                <div class="qty-btn-container">
+                    <button class="decrease-btn">-</button>
+                    <span class="product-qty"></span>
+                    <button class="increase-btn">+</button>
+                </div>
+
+                <div class="btn-container">
+                    <button class="buy-now-btn">Buy Now!</button>
+                    <button class="add-to-cart-btn">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <aside class="cart">
+        <div class="cart-heading-container">
+            <p class="cart-heading">Cart</p>
+            <button class="cart-close-btn">X</button>
+        </div>
+        <div class="cart-items-container">
+        </div>
+    </aside>
+    <script src="4_detail.js"></script>
+</body>
+</html>
